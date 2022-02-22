@@ -26,15 +26,16 @@ let select = function () {
   selectHeader.forEach((item) => {
     item.addEventListener("click", selectToggle);
   });
-
   selectItem.forEach((item) => {
     item.addEventListener("click", selectChoose);
   });
   function selectToggle() {
-    // let select = document.querySelectorAll(".select");
-    // select.forEach((item) => {
-    //   item.classList.remove("is-active");
-    // });
+    let select = document.querySelectorAll(".select");
+    select.forEach((item) => {
+      if (this.parentElement !== item) {
+        item.classList.remove("is-active");
+      }
+    });
     this.parentElement.classList.toggle("is-active");
   }
   function selectChoose() {
